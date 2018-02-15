@@ -22,8 +22,11 @@ GameObject:
   - component: {fileID: 33365089101812680}
   - component: {fileID: 23783105804992854}
   - component: {fileID: 95157210758049288}
+<<<<<<< HEAD
   - component: {fileID: 54916807487727418}
   - component: {fileID: 65295504103458856}
+=======
+>>>>>>> master
   m_Layer: 0
   m_Name: fulldesk
   m_TagString: Untagged
@@ -56,7 +59,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1572066180527954}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalPosition: {x: 2.29, y: -1.514, z: 4.8}
+>>>>>>> master
   m_LocalScale: {x: 1.5322982, y: 1, z: 1}
   m_Children:
   - {fileID: 4982947488577722}
@@ -85,11 +92,19 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+<<<<<<< HEAD
+=======
+  m_DynamicOccludee: 1
+>>>>>>> master
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
+<<<<<<< HEAD
   - {fileID: 2100000, guid: dfcca6fb1e332a24d902e199eb06657c, type: 2}
+=======
+  - {fileID: 2100000, guid: 8b0afaa1744da1d4eaa231aef3a78c94, type: 3}
+>>>>>>> master
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,6 +115,10 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+<<<<<<< HEAD
+=======
+  m_StitchLightmapSeams: 0
+>>>>>>> master
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -117,11 +136,19 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+<<<<<<< HEAD
+=======
+  m_DynamicOccludee: 1
+>>>>>>> master
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
+<<<<<<< HEAD
   - {fileID: 2100000, guid: 986b879dbed5cf7469919929130d5556, type: 2}
+=======
+  - {fileID: 2100000, guid: 9ab24d590e2b0ea4e9055be51e1647c6, type: 3}
+>>>>>>> master
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,6 +159,10 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+<<<<<<< HEAD
+=======
+  m_StitchLightmapSeams: 0
+>>>>>>> master
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -154,6 +185,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890734725448556}
   m_Mesh: {fileID: 4300000, guid: 9ab24d590e2b0ea4e9055be51e1647c6, type: 3}
+<<<<<<< HEAD
 --- !u!54 &54916807487727418
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -181,6 +213,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999996, y: 6.7438574, z: 2.1073053}
   m_Center: {x: 0, y: -0.060235023, z: 1.2753726}
+=======
+>>>>>>> master
 --- !u!95 &95157210758049288
 Animator:
   serializedVersion: 3
