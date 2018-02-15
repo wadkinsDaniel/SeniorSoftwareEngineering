@@ -3,6 +3,11 @@ using System.Collections;
 using System;
 public class DialogueInteraction : MonoBehaviour
 {
+
+    public static event Action<int> spokeWithNpc;
+
+    public int questObjectID;
+
     private Dialogue dialogueManager;
     public string[] linesOfDialogue;
     public bool isColliding = false;
@@ -33,6 +38,8 @@ public class DialogueInteraction : MonoBehaviour
                         dialogueManager.linesOfDialogue = linesOfDialogue;
                         dialogueManager.lines = 0;
                         dialogueManager.ShowDialogue();
+
+                        spokeWithNpc(questObjectID);
  
                     }
                     else
@@ -41,6 +48,8 @@ public class DialogueInteraction : MonoBehaviour
                         dialogueManager.linesOfDialogue = alternativeDialogue;
                         dialogueManager.lines = 0;
                         dialogueManager.ShowDialogue();
+
+                        spokeWithNpc(questObjectID);
                         
                     }
                 }
