@@ -13,12 +13,8 @@ public class Quest{
 
 	public void updateRequirements(int questObjectID){
 
-		foreach(KeyValuePair<int, bool> kvp in requirements){
-
-			if(kvp.Key == questObjectID){
-				requirements[kvp.Key] = true;
-				break;
-			}
+		if (requirements.ContainsKey(questObjectID)){
+			requirements[questObjectID] = true;
 		}
 	}
 
@@ -40,7 +36,6 @@ public class Quest{
 			}else if (kvp.Value == false){
 				break;
 			}
-
 		}
 
 		if(questCompleted == requirements.Count){
@@ -48,5 +43,9 @@ public class Quest{
 		}
 
 		return isCompleted;
+	}
+
+	public Dictionary<int,bool> getRequirements(){
+		return requirements;
 	}
 }

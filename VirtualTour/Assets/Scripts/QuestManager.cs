@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class QuestManager : MonoBehaviour {
 
 	public static QuestManager current;
 
-	public Quest currentlyTrackedQuest;
+	public Text[] questTextDisplay;
 
-	private bool testBool;
+	private Quest currentlyTrackedQuest;
+	private int loopIterator;
 
 	private void OnEnable(){
 
@@ -24,13 +28,26 @@ public class QuestManager : MonoBehaviour {
 
 	private void recieveNotification(int questObjectID){
 		currentlyTrackedQuest.updateRequirements(questObjectID);
-		
-		testBool = currentlyTrackedQuest.isQuestDone();
+		StartCoroutine(updateQuestUI());
+	}
 
-		Debug.Log(testBool);
+	private IEnumerator updateQuestUI(){
+
+		loopIterator = 0;
+		
+		foreach(KeyValuePair<int, bool> kvp in currentlyTrackedQuest.getRequirements()){
+
+			questTextDisplay[loopIterator].text = "Speak with " + kvp.Key.ToString() + 
+							": " + kvp.Value;
+
+			loopIterator++;
+		}
+
+		yield return new WaitForSeconds(1.0f);
 	}
 
 	public void setCurrentlyTrackedQuest(Quest newQuest){
-		currentlyTrackedQuest = newQuest;
+		currentlyTrackedQuest = newQuest;		
+		StartCoroutine(updateQuestUI());
 	}
 }

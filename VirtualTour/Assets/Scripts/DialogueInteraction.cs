@@ -34,7 +34,7 @@ public class DialogueInteraction : MonoBehaviour
                 if (dialogueManager.opened == false)
                 {
                     if (alternativeDialogue.Length == 0) 
-{ 
+                    { 
                         dialogueManager.linesOfDialogue = linesOfDialogue;
                         dialogueManager.lines = 0;
                         dialogueManager.ShowDialogue();
