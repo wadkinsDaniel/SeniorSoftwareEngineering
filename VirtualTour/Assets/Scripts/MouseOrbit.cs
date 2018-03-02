@@ -19,6 +19,7 @@ public class MouseOrbit : MonoBehaviour {
     float y = 0.0f;
 
     public bool hide;
+    public bool inMenu;
 
     private GameState gameState = GameState.PLAYING;
     // Use this for initialization
@@ -34,16 +35,18 @@ public class MouseOrbit : MonoBehaviour {
     private void OnEnable()
     {
         GameController.changeGameState += updateGameState;
+        DialogueSystem.inMenu += changeMenu;
     }
     private void OnDisable()
     {
         GameController.changeGameState -= updateGameState;
+        DialogueSystem.inMenu -= changeMenu;
     }
 
     void LateUpdate()
     {
 
-        if (gameState == GameState.PAUSED || gameState == GameState.WIN || hide)
+        if (gameState == GameState.PAUSED || gameState == GameState.WIN || inMenu)
         {
             return;
         }
@@ -92,5 +95,11 @@ public class MouseOrbit : MonoBehaviour {
     void playerHide()
     {
         hide = !hide;
+    }
+
+    public void changeMenu(bool status)
+    {
+
+        inMenu = status;
     }
 }
