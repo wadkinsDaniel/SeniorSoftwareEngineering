@@ -24,8 +24,9 @@ public class PlayerController : MonoBehaviour
     public Transform pivot;
     public float rotateSpeed;
     public GameObject playerModel;
-
     public bool isInteracting = false;
+
+    public bool inMenu;
 
     // Use this for initialization
     void Start()
@@ -38,29 +39,24 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         GameController.changeGameState += updateGameState;
-        //PlayerAbilities.hide += playerHide;
         anim.SetBool("Walk", true);
         _playerState = PlayerState.IDLE;
-
+        DialogueSystem.inMenu += changeMenu;
     }
 
     void OnDisable()
     {
         GameController.changeGameState -= updateGameState;
-        //PlayerAbilities.hide -= playerHide;
+        DialogueSystem.inMenu -= changeMenu;
     }
     // Update is called once per frame
     void Update()
     {
-        if (gameState == GameState.PAUSED || gameState == GameState.WIN)
+        if (gameState == GameState.PAUSED || gameState == GameState.WIN || isInteracting || inMenu)
         {
             return;
         }
         ChangeState();
-
-
-
-
     }
 
     void updateGameState(GameState gameState)
@@ -78,38 +74,25 @@ public class PlayerController : MonoBehaviour
         switch (_playerState)
         {
             case PlayerState.IDLE:
-                if (isInteracting == false)
-                {
-                    Movement();
-                }
+                Movement();
                 if (Input.GetAxis("Run") > 0) { _playerState = PlayerState.RUNNING; }
                 if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0) { _playerState = PlayerState.WALKING; }
                 anim.SetBool("Walk", true);
-
                 break;
 
             case PlayerState.WALKING:
-                if (isInteracting == false)
-                {
-                    Movement();
-                    if (Input.GetAxis("Run") > 0) { _playerState = PlayerState.RUNNING; }
-                    if (getMoveDir() == 0) { _playerState = PlayerState.IDLE; }
-                    moveSpeed = walkSpeed;
-                }
+                Movement();
+                if (Input.GetAxis("Run") > 0) { _playerState = PlayerState.RUNNING; }
                 if (getMoveDir() == 0) { _playerState = PlayerState.IDLE; }
-
+                moveSpeed = walkSpeed;
+                if (getMoveDir() == 0) { _playerState = PlayerState.IDLE; }
                 break;
 
             case PlayerState.RUNNING:
-                if (isInteracting == false)
-                {
-                    Movement();
-                    if (Input.GetAxis("Run") == 0) { _playerState = PlayerState.IDLE; }
-                    moveSpeed = runSpeed;
-
-                }
+                Movement();
                 if (Input.GetAxis("Run") == 0) { _playerState = PlayerState.IDLE; }
-
+                moveSpeed = runSpeed;
+                if (Input.GetAxis("Run") == 0) { _playerState = PlayerState.IDLE; }
                 break;
 
             default:
@@ -146,5 +129,11 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    public void changeMenu(bool status) {
+
+        inMenu = status;
+    }
+
 
 }
