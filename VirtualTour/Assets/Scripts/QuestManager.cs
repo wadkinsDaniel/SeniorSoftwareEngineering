@@ -37,7 +37,8 @@ public class QuestManager : MonoBehaviour {
 		
 		foreach(KeyValuePair<int, bool> kvp in currentlyTrackedQuest.getRequirements()){
 
-			questTextDisplay[loopIterator].text = kvp.Value.ToString();
+			questTextDisplay[loopIterator].text = "Speak with " + kvp.Key.ToString() + 
+							": " + kvp.Value;
 
 			loopIterator++;
 		}

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     public bool inMenu;
 
+    public GameObject dialogue;
+
     // Use this for initialization
     void Start()
     {
@@ -133,6 +135,8 @@ public class PlayerController : MonoBehaviour
     public void changeMenu(bool status) {
 
         inMenu = status;
+        dialogue.SetActive(status);
+
     }
 
 
