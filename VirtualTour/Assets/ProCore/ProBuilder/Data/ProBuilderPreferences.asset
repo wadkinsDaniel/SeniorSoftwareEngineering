@@ -27,6 +27,7 @@ MonoBehaviour:
   - pbDefaultEntity
   - pbDefaultCollider
   - pbShadowCastingMode
+  - pbEdgeSubdivisions
   m_Float_keys:
   - pbBevelAmount
   - pbEditorScroll.x
@@ -36,12 +37,12 @@ MonoBehaviour:
   m_Color_keys: []
   m_Material_keys:
   - pbDefaultMaterial
-  m_Bool_values: 01000101010000
-  m_Int_values: 00000000020000000000000000000000000000000200000002000000
+  m_Bool_values: 00000101010000
+  m_Int_values: 010000000200000000000000000000000000000002000000020000000e000000
   m_Float_values:
   - 0.99
   - 0
-  - 0
+  - 173
   m_String_values:
   - Assets/ProCore/ProBuilder/Data/Material Palette.asset
   m_Color_values: []

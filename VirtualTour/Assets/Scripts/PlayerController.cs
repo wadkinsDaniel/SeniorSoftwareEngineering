@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("BlendX", controller.velocity.x);
         anim.SetFloat("BlendY", controller.velocity.z);
         moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+        //moveDirection.y = Mathf.Clamp(moveDirection.y, 0, gravityScale);
         controller.Move(moveDirection * Time.deltaTime);
 
         //move player in different directions based on camera direction
