@@ -21,7 +21,6 @@ public class Quest{
 	private void setUpQuestDefault(){
 
 		requirements.Add(200, false);
-		requirements.Add(201, false);
 	}
 
 	public bool isQuestDone(){

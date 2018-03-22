@@ -8,6 +8,9 @@ using System;
 public enum DialogueState {INTRO,INFORMATION,FIELD,EXIT };
 
 public class DialogueSystem : MonoBehaviour {
+
+    public int questObjectID;
+
     public List<string> professorResponses = new List<string>(); //List of the professor's responses - edit values in the editor
     public List<string> playerResponse = new List<string>(); //List of the player's responses - edit values in the editor
     public List<Text> buttonText = new List<Text>(); //List of the text elements of the buttons - will be set from player responses
@@ -18,6 +21,7 @@ public class DialogueSystem : MonoBehaviour {
     public DialogueState _dialogueState;
 
     public static event Action<bool> inMenu;
+    public static event Action<int> spokeWithNpc;
     
     //on awake set the button texts
     private void Awake()
@@ -78,6 +82,7 @@ public class DialogueSystem : MonoBehaviour {
             //show the canvas
             canvasHolder.SetActive(true);
             //probably send a notification to the player that they are in the menu
+            spokeWithNpc(questObjectID);
         }
     }
 
