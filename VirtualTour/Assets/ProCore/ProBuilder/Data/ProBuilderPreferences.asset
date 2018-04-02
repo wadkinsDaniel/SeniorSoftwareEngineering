@@ -40,11 +40,11 @@ MonoBehaviour:
   m_Material_keys:
   - pbDefaultMaterial
   m_Bool_values: 000001010100000101
-  m_Int_values: 010000000100000000000000000000000000000002000000020000000e000000
+  m_Int_values: 010000000200000000000000000000000000000002000000020000000e000000
   m_Float_values:
   - 0.99
   - 0
-  - 0
+  - 98
   m_String_values:
   - Assets/ProCore/ProBuilder/Data/Material Palette.asset
   m_Color_values: []
