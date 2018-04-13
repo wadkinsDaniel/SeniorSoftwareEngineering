@@ -82,7 +82,10 @@ public class DialogueSystem : MonoBehaviour {
             //show the canvas
             canvasHolder.SetActive(true);
             //probably send a notification to the player that they are in the menu
-            spokeWithNpc(questObjectID);
+            if(spokeWithNpc != null){
+                Debug.Log(questObjectID + "Dialogue");
+                spokeWithNpc(questObjectID);  
+            }
         }
     }
 

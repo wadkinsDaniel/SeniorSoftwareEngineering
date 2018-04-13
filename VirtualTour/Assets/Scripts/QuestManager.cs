@@ -19,16 +19,15 @@ public class QuestManager : MonoBehaviour {
 		}else{
 			current = this;
 		}
-
-		DialogueInteraction.spokeWithNpc += recieveNotification;
+		
 		DialogueSystem.spokeWithNpc += recieveNotification;
 	}
 	private void OnDisable(){
-		DialogueInteraction.spokeWithNpc -= recieveNotification;
 		DialogueSystem.spokeWithNpc -= recieveNotification;
 	}
 
 	private void recieveNotification(int questObjectID){
+		
 		currentlyTrackedQuest.updateRequirements(questObjectID);
 		StartCoroutine(updateQuestUI());
 	}
@@ -48,6 +47,8 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	public void setCurrentlyTrackedQuest(Quest newQuest){
+
+		Debug.Log("Reached");
 		currentlyTrackedQuest = newQuest;		
 		StartCoroutine(updateQuestUI());
 	}
