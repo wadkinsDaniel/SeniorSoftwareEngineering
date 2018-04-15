@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33872506528771262}
   - component: {fileID: 23376112692461500}
   - component: {fileID: 95435402070894728}
+  - component: {fileID: 65534713764488078}
   m_Layer: 0
   m_Name: benchp
   m_TagString: Untagged
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920606475903614}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 9.8198, y: 0.156, z: 42.567}
-  m_LocalScale: {x: 0.25, y: 0.62, z: 0.08540974}
+  m_LocalPosition: {x: 9.9909, y: 0.252, z: 42.505}
+  m_LocalScale: {x: 0.31975755, y: 0.8496809, z: 0.14692597}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,6 +52,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -66,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920606475903614}
   m_Mesh: {fileID: 4300000, guid: c89290587aa36af4e9ac0a5383b7dd37, type: 3}
+--- !u!65 &65534713764488078
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920606475903614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.73528, y: 2.092942, z: 3.7958179}
+  m_Center: {x: -0.008774996, y: 0.0010880232, z: 0.18396497}
 --- !u!95 &95435402070894728
 Animator:
   serializedVersion: 3
