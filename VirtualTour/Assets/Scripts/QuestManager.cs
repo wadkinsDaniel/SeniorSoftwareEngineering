@@ -47,8 +47,7 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	public void setCurrentlyTrackedQuest(Quest newQuest){
-
-		Debug.Log("Reached");
+		
 		currentlyTrackedQuest = newQuest;		
 		StartCoroutine(updateQuestUI());
 	}
