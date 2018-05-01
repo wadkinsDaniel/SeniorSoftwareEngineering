@@ -17,7 +17,7 @@ public class DialogueSystem : MonoBehaviour {
     public Text professorReponse;
 
     public GameObject canvasHolder;
-
+    public bool active = false;
     public DialogueState _dialogueState;
 
     public static event Action<bool> inMenu;
@@ -70,22 +70,37 @@ public class DialogueSystem : MonoBehaviour {
     }
 
     //when player enters trigger open up the canvas
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
+       
         if (other.gameObject.tag == "Player") {
-            _dialogueState = DialogueState.INTRO;
-            //send a true notifcation out to the player that we are in the menu
-            if (inMenu!= null) {
-                Cursor.lockState = CursorLockMode.None;
-                inMenu(true);
+            if(Input.GetKeyDown(KeyCode.E)) {
+                if( active == false){
+                    _dialogueState = DialogueState.INTRO;
+                //send a true notifcation out to the player that we are in the menu
+                    if (inMenu!= null) {
+                        Cursor.lockState = CursorLockMode.None;
+                        inMenu(true);
+                    }
+                    //show the canvas
+                    canvasHolder.SetActive(true);
+                    //probably send a notification to the player that they are in the menu
+                    if(spokeWithNpc != null){
+                        Debug.Log(questObjectID + "Dialogue");
+                        spokeWithNpc(questObjectID);  
+                    }
+                    active = true;
+
+                } else {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    canvasHolder.SetActive(false);
+                    _dialogueState = DialogueState.EXIT;
+                    active = false;
+                }
+           
+                
             }
-            //show the canvas
-            canvasHolder.SetActive(true);
-            //probably send a notification to the player that they are in the menu
-            if(spokeWithNpc != null){
-                Debug.Log(questObjectID + "Dialogue");
-                spokeWithNpc(questObjectID);  
-            }
+            
         }
     }
 
@@ -94,9 +109,11 @@ public class DialogueSystem : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-           
+            active = false;
             //hide the canvas
             canvasHolder.SetActive(false);
+            _dialogueState = DialogueState.EXIT;
+
             //probably send a notification to the player that they are in the menu
         }
     }
