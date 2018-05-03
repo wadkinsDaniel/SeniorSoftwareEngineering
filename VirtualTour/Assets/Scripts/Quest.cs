@@ -20,10 +20,22 @@ public class Quest{
 
 	private void setUpQuestDefault(){
 
-		requirements.Add(200, false);
-		requirements.Add(201, false);
-		requirements.Add(19, false);
-		requirements.Add(20, false);
+		requirements.Add(1, false);
+		requirements.Add(2, false);
+		requirements.Add(3, false);
+		requirements.Add(4, false);
+		requirements.Add(5, false);
+		requirements.Add(6, false);
+		requirements.Add(7, false);
+		requirements.Add(8, false);
+		requirements.Add(9, false);
+		requirements.Add(10, false);
+		requirements.Add(11, false);
+		requirements.Add(12, false);
+		requirements.Add(13, false);
+		requirements.Add(14, false);
+		requirements.Add(15, false);
+
 	}
 
 	public bool isQuestDone(){
