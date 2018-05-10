@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider))]
 
-public class ShowRoom : MonoBehaviour {
+public class ShowRoom : MonoBehaviour
+{
     //Player collides with box
     //Player presses a button
     //Image pops up
@@ -16,31 +17,38 @@ public class ShowRoom : MonoBehaviour {
 
     public RawImage roomPicturePanel;
     public Texture roomPicture;
-    private bool inside;
+    public bool inside;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         roomPicturePanel.enabled = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (inside) {
-            if (Input.GetKeyDown(KeyCode.E)) {
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (inside)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
                 if (roomPicturePanel.enabled == false)
                 {
+                    roomPicturePanel.gameObject.transform.parent.gameObject.SetActive(true);
                     roomPicturePanel.enabled = true;
                     roomPicturePanel.texture = roomPicture;
                 }
-                else { roomPicturePanel.enabled = false; }
+                else { roomPicturePanel.enabled = false; roomPicturePanel.gameObject.transform.parent.gameObject.SetActive(false); }
             }
 
         }
-	}
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == "Player")
+        {
             inside = true;
         }
     }
